@@ -15,6 +15,7 @@ class FirstBloc extends Bloc<FirstEvent, FirstState> {
   _onCheckPalindromeEvent(
       CheckPalindromeEvent event, Emitter<FirstState> emit) {
     if (state.palindrome.isEmpty) return;
+
     final chars = state.palindrome.split('');
     final reversedPalindrome = chars.reversed.join('');
 

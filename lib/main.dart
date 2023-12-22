@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: getIt<AppRouteConf>().router,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'KM Suitmedia App',
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

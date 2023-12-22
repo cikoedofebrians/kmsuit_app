@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kmsuit_app/common/theme/app_colors.dart';
 import 'package:kmsuit_app/feature/third/presentation/bloc/third_bloc.dart';
 import 'package:kmsuit_app/feature/third/presentation/widgets/user_item.dart';
 
@@ -44,27 +45,39 @@ class _UserListState extends State<UserList> {
   Widget build(BuildContext context) {
     return BlocBuilder<ThirdBloc, ThirdState>(
       builder: (context, state) {
-        return ListView(
-          controller: _scrollController,
-          children: [
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-              itemBuilder: (context, index) => UserItem(
-                user: state.userList[index],
+        if (state.userList.isEmpty) {
+          return const Center(
+            child: Text(
+              "No user found",
+              style: TextStyle(
+                color: AppColors.primaryTextColor,
               ),
-              itemCount: state.userList.length,
             ),
-            if (state.loadMoreFetchStatus.isLoading)
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 24),
-                child: Center(
-                  child: CircularProgressIndicator.adaptive(),
+          );
+        } else {
+          return ListView(
+            controller: _scrollController,
+            children: [
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                itemBuilder: (context, index) => UserItem(
+                  user: state.userList[index],
                 ),
-              )
-          ],
-        );
+                itemCount: state.userList.length,
+              ),
+              if (state.loadMoreFetchStatus.isLoading)
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 24),
+                  child: Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  ),
+                )
+            ],
+          );
+        }
       },
     );
   }

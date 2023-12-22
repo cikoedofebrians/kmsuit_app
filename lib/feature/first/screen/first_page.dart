@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kmsuit_app/common/shared_widgets/snack_bar.dart';
 import 'package:kmsuit_app/core/injector/injector.dart';
 import 'package:kmsuit_app/feature/first/bloc/first_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -67,13 +68,23 @@ class FirstView extends StatelessWidget {
                                 .add(OnChangePalindromeTextEvent(newValue));
                           }),
                       const SizedBox(height: 45),
-                      SuitButton(
-                          title: "CHECK",
-                          onTap: () {
-                            context
-                                .read<FirstBloc>()
-                                .add(const CheckPalindromeEvent());
-                          }),
+                      BlocBuilder<FirstBloc, FirstState>(
+                        builder: (context, state) {
+                          return SuitButton(
+                              title: "CHECK",
+                              onTap: () {
+                                if (state.palindrome.isNotEmpty) {
+                                  context
+                                      .read<FirstBloc>()
+                                      .add(const CheckPalindromeEvent());
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SuitSnackBar(
+                                          title: "Palindrome text is empty"));
+                                }
+                              });
+                        },
+                      ),
                       const SizedBox(height: 15),
                       BlocBuilder<FirstBloc, FirstState>(
                         builder: (_, state) {
@@ -83,6 +94,10 @@ class FirstView extends StatelessWidget {
                                 if (state.name.isNotEmpty) {
                                   context.pushNamed(AppRoute.second.name,
                                       pathParameters: {'name': state.name});
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SuitSnackBar(
+                                          title: "Name field is empty"));
                                 }
                               });
                         },

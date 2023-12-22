@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kmsuit_app/common/shared_widgets/snack_bar.dart';
 import 'package:kmsuit_app/common/theme/app_colors.dart';
 import 'package:kmsuit_app/feature/second/bloc/second_bloc.dart';
 import 'package:kmsuit_app/feature/third/domain/entity/user_entity.dart';
@@ -17,18 +18,8 @@ class UserItem extends StatelessWidget {
             .read<SecondBloc>()
             .add(ChangeSelectedUserEvent("${user.firstName} ${user.lastName}"));
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            backgroundColor: AppColors.primaryColor,
-            content: Text(
-              "Success selecting ${user.firstName} ${user.lastName}",
-              style: const TextStyle(
-                  color: AppColors.backgroundColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
-            ),
-          ),
-        );
+        ScaffoldMessenger.of(context).showSnackBar(SuitSnackBar(
+            title: "Success selecting ${user.firstName} ${user.lastName}"));
       },
       child: Container(
         padding: const EdgeInsets.all(16),
