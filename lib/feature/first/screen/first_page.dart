@@ -39,11 +39,15 @@ class FirstView extends StatelessWidget {
         body: SingleChildScrollView(
           child: SizedBox(
             height: MediaQuery.sizeOf(context).height,
+            width: MediaQuery.sizeOf(context).width,
             child: Stack(
               children: [
-                Image.asset(
-                  "assets/images/background.png",
-                  fit: BoxFit.cover,
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width,
+                  child: Image.asset(
+                    "assets/images/background.png",
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 32),
