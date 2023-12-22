@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kmsuit_app/core/theme/app_colors.dart';
+import 'package:kmsuit_app/common/theme/app_colors.dart';
 
-class SysTextField extends StatelessWidget {
-  const SysTextField(
+class SuitTextField extends StatelessWidget {
+  const SuitTextField(
       {super.key, required this.hintText, required this.onChange});
 
   final Function(String) onChange;
@@ -10,13 +10,14 @@ class SysTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChange,
       style: const TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 16,
       ),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        hintText: "Name",
+        hintText: hintText,
         hintStyle: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 16,

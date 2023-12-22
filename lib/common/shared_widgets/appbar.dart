@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kmsuit_app/core/theme/app_colors.dart';
-import 'package:kmsuit_app/presentation/shared_widgets/back_button.dart';
+import 'package:kmsuit_app/common/theme/app_colors.dart';
+import 'package:kmsuit_app/common/shared_widgets/back_button.dart';
 
 const _kCustomToolbarHeight = 60.0;
 
@@ -10,6 +10,7 @@ class SuitAppBar extends AppBar implements PreferredSizeWidget {
     String title = '',
     super.actions,
   }) : super(
+          surfaceTintColor: Colors.transparent,
           leading: const SuitBackButton(),
           centerTitle: true,
           titleTextStyle: const TextStyle(

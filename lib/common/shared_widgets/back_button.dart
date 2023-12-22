@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class SuitBackButton extends StatelessWidget {
   const SuitBackButton({super.key});
@@ -9,7 +10,7 @@ class SuitBackButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
       child: InkWell(
-        onTap: () => Navigator.pop(context),
+        onTap: () => context.pop(),
         borderRadius: BorderRadius.circular(100),
         child: Padding(
           padding: const EdgeInsets.all(12),

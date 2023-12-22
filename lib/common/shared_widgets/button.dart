@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kmsuit_app/core/theme/app_colors.dart';
+import 'package:kmsuit_app/common/theme/app_colors.dart';
 
 class SuitButton extends StatelessWidget {
   const SuitButton({super.key, required this.title, required this.onTap});
