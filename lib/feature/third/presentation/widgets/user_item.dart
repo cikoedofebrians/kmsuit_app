@@ -49,15 +49,15 @@ class UserItem extends StatelessWidget {
             children: [
               Text(
                 "${user.firstName} ${user.lastName}",
-                style: TextStyle(
+                style: const TextStyle(
                   color: AppColors.primaryTextColor,
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),
               ),
               Text(
-                "${user.email}",
-                style: TextStyle(
+                user.email,
+                style: const TextStyle(
                   fontWeight: FontWeight.w500,
                   color: AppColors.secondaryTextColor,
                   fontSize: 10,

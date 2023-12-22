@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:kmsuit_app/core/network/dio_client.dart';
 import 'package:kmsuit_app/core/network/network.dart';
 import 'package:kmsuit_app/core/routings/routing_conf.dart';
 import 'package:kmsuit_app/feature/first/bloc/first_bloc.dart';

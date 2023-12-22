@@ -50,7 +50,7 @@ class SecondView extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               name,
-              style: TextStyle(
+              style: const TextStyle(
                   color: AppColors.primaryTextColor,
                   fontWeight: FontWeight.w600,
                   fontSize: 18),
@@ -62,7 +62,7 @@ class SecondView extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     state.name.isEmpty ? "Selected User Name" : state.name,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                   ),
                 );
               },
